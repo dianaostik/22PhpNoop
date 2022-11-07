@@ -1,5 +1,6 @@
 <?php
 include "./Coin.php";
+include "./Phone.php";
 ?>
 
 <!DOCTYPE html>
@@ -68,6 +69,43 @@ include "./Coin.php";
                     echo "<td>".$coin->getValue()."</td>";
                     echo "<td>".$coin->getYear()."</td>";
                     echo "<td>".$coin->getMadeFrom()."</td>";
+                echo "</tr>";
+            }
+        ?>
+    </tbody>
+</table>
+
+<?php
+    $phone = new Phone();   
+    $phone->name = "Nokia";
+    $phone->years = 2000;
+    $phone->model = false;
+
+    $phone2 = new Phone("Samsung", 2021, true);
+    $phone3 = new Phone("Iphone", 2021, true);
+    $phone4 = new Phone("Samsung", 2015, false);
+    
+
+    $phones = [$phone,$phone2,$phone3,$phone4];
+?>
+
+<table class="table">
+    <thead>
+        <tr>
+            <?php
+                foreach ($phones[0] as $key => $value) {
+                    echo "<th>".$key."</th>";
+                }
+            ?>
+        </tr>
+    </thead>
+    <tbody>
+        <?php
+            foreach ($phones as $phone) {
+                echo "<tr>";
+                    echo "<td>".$phone->name."</td>";
+                    echo "<td>".$phone->years."</td>";
+                    echo "<td>". ( ($phone->model) ? "naujas" : "nenaujas" )."</td>";
                 echo "</tr>";
             }
         ?>

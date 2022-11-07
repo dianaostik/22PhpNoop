@@ -45,9 +45,5 @@ class Coin{
     {
         return $this->madeFrom;
     }
-
-
-
 }
-
 ?>
